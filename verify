@@ -54,29 +54,29 @@ function createTempDir() {
   fi
 }
 
-verifyTool mvn
 verifyTool rdfdiff "yes"
 verifyTool riot "yes"
 
+BINARY="./build/install/dlubm/bin/dlubm"
 NUM="${1:-10}"
 ONTO_URL="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl"
 
 set -e
 
 # Use the original code to generate data
-git checkout master
-mvn clean package
+git checkout 1.7.0-pre
+./gradlew clean build installDist
 
 BASE="/tmp/lubm/"
 createTempDir "${BASE}"
 ORIG_BASE="${BASE}orig/"
 createTempDir "${ORIG_BASE}"
 rm -f ${ORIG_BASE}*.owl
-./generate.sh -onto "${ONTO_URL}" -univ ${NUM} -out "${ORIG_BASE}"
+${BINARY} -onto "${ONTO_URL}" -univ ${NUM} -out "${ORIG_BASE}"
 
 # Switch to the improved code for the rest of the testing
-git checkout improved
-mvn clean package
+git checkout 1.8.0-pre
+./gradlew clean build installDist
 
 function ext() {
   case $1 in
@@ -126,24 +126,24 @@ do
   ST_BASE="${BASE}improved/single-threaded"
   createTempDir "${ST_BASE}"
   rm -f ${ST_BASE}/${FORMAT}/*${EXT}
-  ./generate.sh --univ ${NUM} --output ${ST_BASE}/${FORMAT} --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet
+  ${BINARY} --univ ${NUM} --output ${ST_BASE}/${FORMAT} --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet
 
   MT_BASE="${BASE}improved/multi-threaded"
   createTempDir "${MT_BASE}/${FORMAT}"
   rm -f ${MT_BASE}/${FORMAT}/*${EXT}
-  ./generate.sh --univ ${NUM} --output ${MT_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet
+  ${BINARY} --univ ${NUM} --output ${MT_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet
 
   CON_SOME_BASE="${BASE}improved/consolidated/some"
   createTempDir "${CON_SOME_BASE}/${FORMAT}"
   rm -f ${CON_SOME_BASE}/${FORMAT}/*${EXT}
   rm -f ${CON_SOME_BASE}/${FORMAT}/*_orig.nt
-  ./generate.sh --univ ${NUM} --output ${CON_SOME_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet --consolidate Partial
+  ${BINARY} --univ ${NUM} --output ${CON_SOME_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet --consolidate Partial
 
   CON_FULL_BASE="${BASE}improved/consolidated/full"
   createTempDir "${CON_FULL_BASE}/${FORMAT}"
   rm -f ${CON_FULL_BASE}/${FORMAT}/*${EXT}
   rm -f ${CON_SOME_BASE}/${FORMAT}/*_orig.nt
-  ./generate.sh --univ ${NUM} --output ${CON_FULL_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet --consolidate Full
+  ${BINARY} --univ ${NUM} --output ${CON_FULL_BASE}/${FORMAT} --threads 8 --onto "${ONTO_URL}" --format ${FORMAT} --timing --quiet --consolidate Full
 
   set +e
 
@@ -157,7 +157,7 @@ do
       exit 1
     fi
 
-    rdfdiff ${BASE}/orig/${NAME} ${ST_BASE}/${FORMAT}/${OUT_NAME}${EXT} RDF/XML ${LANG} http://example.org/ http://example.org/
+    rdfdiff ${BASE}orig/${NAME} ${ST_BASE}/${FORMAT}/${OUT_NAME}${EXT} RDF/XML ${LANG} http://example.org/ http://example.org/
     if [ $? -ne 0 ]; then
       echo "File ${ST_BASE}/${FORMAT}/${OUT_NAME}${EXT} from improved single-threaded output is different from ${FILE}"
       exit 1
