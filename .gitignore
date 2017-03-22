@@ -1,13 +1,13 @@
-# Maven Artifacts
-target/
-dependency-reduced-pom.xml
+# Gradle artifacts
+.gradle/
+build/
 
-# Eclipse Artifacts
+# Eclipse artifacts
 .project
 .classpath
 .settings/
 
-# Generator Artifacts
+# Generator artifacts
 log.txt
 Universities.*
 Universities-*
