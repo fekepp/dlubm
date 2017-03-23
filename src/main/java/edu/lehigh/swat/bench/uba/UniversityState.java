@@ -2,7 +2,12 @@ package edu.lehigh.swat.bench.uba;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+
+import org.apache.commons.lang3.text.StrSubstitutor;
+
 import edu.lehigh.swat.bench.uba.model.CourseInfo;
 import edu.lehigh.swat.bench.uba.model.GenerationParameters;
 import edu.lehigh.swat.bench.uba.model.InstanceCount;
@@ -342,17 +347,34 @@ public class UniversityState implements GeneratorCallbackTarget {
      */
     public String getId(int classType, int index) {
         String id;
-
+        
         switch (classType) {
         case Ontology.CS_C_UNIV:
-            id = "http://www." + getRelativeName(classType, index) + ".edu";
+        	if (state.getUniversityTemplate() != null) {
+                Map<String, String> values = new HashMap<String, String>();
+                values.put("UNIVERSITY_INDEX", String.valueOf(index));
+                StrSubstitutor sub = new StrSubstitutor(values, "{", "}");
+                id = sub.replace(state.getUniversityTemplate());
+        	} else {
+        		id = "http://www." + getRelativeName(classType, index) + ".edu";
+        	}
             break;
         case Ontology.CS_C_DEPT:
-            id = "http://www." + getRelativeName(classType, index) + "."
+        	if (state.getUniversityTemplate() != null) {
+//                Map<String, String> values = new HashMap<String, String>();
+//                values.put("UNIVERSITY_INDEX", String.valueOf(this.getUniversityIndex()));
+//                values.put("DEPARTMENT_INDEX", String.valueOf(index));
+//                StrSubstitutor sub = new StrSubstitutor(values, "{{", "}}");
+//                id = sub.replace(state.getDepartmentTemplate());
+        		  id = "#";
+        	} else {
+        		id = "http://www." + getRelativeName(classType, index) + "."
                     + getRelativeName(Ontology.CS_C_UNIV, this.getUniversityIndex()) + ".edu";
+        	}
             break;
         default:
-            id = getId(Ontology.CS_C_DEPT, this.instances[Ontology.CS_C_DEPT].count - 1) + Generator.ID_DELIMITER
+            id = getId(Ontology.CS_C_DEPT, this.instances[Ontology.CS_C_DEPT].count - 1)
+                    + (state.getDepartmentTemplate() == null ? Generator.ID_DELIMITER : "")
                     + getRelativeName(classType, index);
             break;
         }

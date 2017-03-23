@@ -71,6 +71,16 @@ public class Launcher {
     @NotBlank
     private String ontology = DEFAULT_ONTOLOGY_URL;
 
+    @Option(name = { "--universityTemplate" }, title = "UniversityTemplate", description = "URI template for universities")
+    
+    @NotBlank
+    private String universityTemplate = null;
+
+    @Option(name = { "--departmentTemplate" }, title = "DepartmentTemplate", description = "URI template for departments")
+    
+    @NotBlank
+    private String departmentTemplate = null;
+
     @Option(name = { "-o",
             "--output" }, title = "OutputDirectory", description = "Sets the output directory to which generated files are written (defaults to working directory)")
     @NotBlank
@@ -144,6 +154,7 @@ public class Launcher {
             Generator generator = new Generator();
             long start = System.currentTimeMillis();
             generator.start(launcher.univNum, launcher.startIndex, launcher.seed, launcher.format, launcher.ontology,
+            		launcher.universityTemplate, launcher.departmentTemplate,
                     launcher.workDir, launcher.consolidate, launcher.compress, launcher.threads, launcher.timeout,
                     TimeUnit.MINUTES, launcher.quiet);
             long elapsed = System.currentTimeMillis() - start;
