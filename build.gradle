@@ -15,7 +15,7 @@ plugins {
  * Configurations
  */
 group = "edu.lehigh.swat.bench.uba"
-version = "1.7.0-pr.0"
+version = "1.7.0"
 description = "Univ-Bench Artificial Data Generator (UBA) for the Lehigh University Benchmark (LUBM)"
 mainClassName = "edu.lehigh.swat.bench.uba.Generator"
 
