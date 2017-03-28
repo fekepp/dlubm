@@ -72,13 +72,9 @@ public class Launcher {
     private String ontology = DEFAULT_ONTOLOGY_URL;
 
     @Option(name = { "--universityTemplate" }, title = "UniversityTemplate", description = "URI template for universities")
-    
-    @NotBlank
     private String universityTemplate = null;
 
     @Option(name = { "--departmentTemplate" }, title = "DepartmentTemplate", description = "URI template for departments")
-    
-    @NotBlank
     private String departmentTemplate = null;
 
     @Option(name = {"--depth" }, arity = 1, title = "Depth", description = "Level of data to be generated.")
