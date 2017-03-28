@@ -360,13 +360,13 @@ public class UniversityState implements GeneratorCallbackTarget {
         	}
             break;
         case Ontology.CS_C_DEPT:
-        	if (state.getUniversityTemplate() != null) {
-//                Map<String, String> values = new HashMap<String, String>();
-//                values.put("UNIVERSITY_INDEX", String.valueOf(this.getUniversityIndex()));
-//                values.put("DEPARTMENT_INDEX", String.valueOf(index));
-//                StrSubstitutor sub = new StrSubstitutor(values, "{{", "}}");
-//                id = sub.replace(state.getDepartmentTemplate());
-        		  id = "#";
+        	if (state.getDepartmentTemplate() != null) {
+                Map<String, String> values = new HashMap<String, String>();
+                values.put("UNIVERSITY_INDEX", String.valueOf(this.getUniversityIndex()));
+                values.put("DEPARTMENT_INDEX", String.valueOf(index));
+                StrSubstitutor sub = new StrSubstitutor(values, "{", "}");
+                id = sub.replace(state.getDepartmentTemplate());
+//        		  id = "#";
         	} else {
         		id = "http://www." + getRelativeName(classType, index) + "."
                     + getRelativeName(Ontology.CS_C_UNIV, this.getUniversityIndex()) + ".edu";
