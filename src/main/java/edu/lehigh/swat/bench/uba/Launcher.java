@@ -74,8 +74,14 @@ public class Launcher {
     @Option(name = { "--universityTemplate" }, title = "UniversityTemplate", description = "URI template for universities")
     private String universityTemplate = null;
 
+    @Option(name = { "--universityLimit" }, title = "UniversityLimit", description = "Limit for universities")
+    private int universityLimit = 0;
+
     @Option(name = { "--departmentTemplate" }, title = "DepartmentTemplate", description = "URI template for departments")
     private String departmentTemplate = null;
+
+    @Option(name = { "--departmentLimit" }, title = "DepartmentLimit", description = "Limit for departments")
+    private int departmentLimit = 0;
 
     @Option(name = {"--depth" }, arity = 1, title = "Depth", description = "Level of data to be generated.")
     @AllowedRawValues(allowedValues = { "GLOBAL", "UNIVERSITY", "DEPARTMENT" })
@@ -154,7 +160,7 @@ public class Launcher {
             Generator generator = new Generator();
             long start = System.currentTimeMillis();
             generator.start(launcher.univNum, launcher.startIndex, launcher.seed, launcher.format, launcher.ontology,
-            		launcher.universityTemplate, launcher.departmentTemplate, launcher.depth,
+            		launcher.universityTemplate, launcher.universityLimit, launcher.departmentTemplate, launcher.departmentLimit, launcher.depth,
                     launcher.workDir, launcher.consolidate, launcher.compress, launcher.threads, launcher.timeout,
                     TimeUnit.MINUTES, launcher.quiet);
             long elapsed = System.currentTimeMillis() - start;

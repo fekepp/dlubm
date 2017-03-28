@@ -351,8 +351,16 @@ public class UniversityState implements GeneratorCallbackTarget {
         switch (classType) {
         case Ontology.CS_C_UNIV:
         	if (state.getUniversityTemplate() != null) {
-                Map<String, String> values = new HashMap<String, String>();
-                values.put("UNIVERSITY_INDEX", String.valueOf(index));
+        		Map<String, String> values = new HashMap<String, String>();
+        		values.put("UNIVERSITY_INDEX", String.valueOf(index));
+                if (state.getUniversityLimit() > 0) {
+            		int universityIndexOffsetMinimum = 
+            				((int) Math.floor(index/state.getUniversityLimit()) * state.getUniversityLimit());
+            		int universityIndexOffsetMaximum =
+            				universityIndexOffsetMinimum + state.getUniversityLimit() - 1;
+                    values.put("UNIVERSITY_INDEX_OFFSET_MINIMUM", String.valueOf(universityIndexOffsetMinimum));
+                    values.put("UNIVERSITY_INDEX_OFFSET_MAXIMUM", String.valueOf(universityIndexOffsetMaximum));
+                }
                 StrSubstitutor sub = new StrSubstitutor(values, "{", "}");
                 id = sub.replace(state.getUniversityTemplate());
         	} else {
@@ -363,7 +371,24 @@ public class UniversityState implements GeneratorCallbackTarget {
         	if (state.getDepartmentTemplate() != null) {
                 Map<String, String> values = new HashMap<String, String>();
                 values.put("UNIVERSITY_INDEX", String.valueOf(this.getUniversityIndex()));
+                if (state.getUniversityLimit() > 0) {
+            		int universityIndexOffsetMinimum = 
+            				((int) Math.floor(this.getUniversityIndex()/state.getUniversityLimit())
+            						* state.getUniversityLimit());
+            		int universityIndexOffsetMaximum =
+            				universityIndexOffsetMinimum + state.getUniversityLimit() - 1;
+                    values.put("UNIVERSITY_INDEX_OFFSET_MINIMUM", String.valueOf(universityIndexOffsetMinimum));
+                    values.put("UNIVERSITY_INDEX_OFFSET_MAXIMUM", String.valueOf(universityIndexOffsetMaximum));
+                }
                 values.put("DEPARTMENT_INDEX", String.valueOf(index));
+                if (state.getDepartmentLimit() > 0) {
+            		int departmentIndexOffsetMinimum = 
+            				((int) Math.floor(index/state.getDepartmentLimit()) * state.getDepartmentLimit());
+            		int departmentIndexOffsetMaximum =
+            				departmentIndexOffsetMinimum + state.getDepartmentLimit() - 1;
+                    values.put("DEPARTMENT_INDEX_OFFSET_MINIMUM", String.valueOf(departmentIndexOffsetMinimum));
+                    values.put("DEPARTMENT_INDEX_OFFSET_MAXIMUM", String.valueOf(departmentIndexOffsetMaximum));
+                }
                 StrSubstitutor sub = new StrSubstitutor(values, "{", "}");
                 id = sub.replace(state.getDepartmentTemplate());
 //        		  id = "#";

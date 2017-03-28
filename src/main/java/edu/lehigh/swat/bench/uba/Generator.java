@@ -69,7 +69,8 @@ public class Generator {
      *            Whether to enable quiet mode
      */
     public void start(int univNum, int startIndex, int seed, WriterType writerType, String ontology,
-    		String universityTemplate, String departmentTemplate, String depth, String workDir,
+    		String universityTemplate, int universityLimit, String departmentTemplate, int departmentLimit,
+    		String depth, String workDir,
             ConsolidationMode consolidate, boolean compress, int threads, long executionTimeout,
             TimeUnit executionTimeoutUnit, boolean quiet) {
         File outputDir = workDir != null ? new File(workDir) : new File(".");
@@ -80,7 +81,8 @@ public class Generator {
                         String.format("Unable to create requested output directory %s", outputDir));
             }
         }
-        GlobalState state = new GlobalState(univNum, seed, startIndex, ontology, universityTemplate, departmentTemplate,
+        GlobalState state = new GlobalState(univNum, seed, startIndex, ontology,
+        		universityTemplate, universityLimit, departmentTemplate, departmentLimit,
         		depth, writerType, outputDir, consolidate,
                 compress, threads, executionTimeout, executionTimeoutUnit, quiet);
 

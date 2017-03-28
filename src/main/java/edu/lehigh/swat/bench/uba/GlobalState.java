@@ -32,7 +32,9 @@ public class GlobalState {
     private final String ontology;
     
     private final String universityTemplate;
+    private final int universityLimit;
     private final String departmentTemplate;
+    private final int departmentLimit;
     private final String depth;
 
     private final AtomicLong[] totalInstancesGenerated;
@@ -55,7 +57,8 @@ public class GlobalState {
     private Future<Long> consolidatorFuture;
 
     public GlobalState(int univNum, long baseSeed, int startIndex, String ontologyUrl,
-    		String universityTemplate, String departmentTemplate, String depth,
+    		String universityTemplate, int universityLimit,
+    		String departmentTemplate, int departmentLimit, String depth,
     		WriterType type, File outputDir,
             ConsolidationMode consolidate, boolean compress, int threads, long executionTimeout,
             TimeUnit executionTimeoutUnit, boolean quiet) {
@@ -64,7 +67,9 @@ public class GlobalState {
         this.startIndex = startIndex;
         this.ontology = ontologyUrl;
         this.universityTemplate = universityTemplate;
+        this.universityLimit = universityLimit;
         this.departmentTemplate = departmentTemplate;
+        this.departmentLimit = departmentLimit;
         this.depth = depth;
         this.writerType = type;
         this.outputDir = outputDir;
@@ -187,9 +192,18 @@ public class GlobalState {
     	return this.universityTemplate;
     }
     
+    public int getUniversityLimit() {
+    	return this.universityLimit;
+    }
+    
     public String getDepartmentTemplate() {
     	return this.departmentTemplate;
     }
+    
+    public int getDepartmentLimit() {
+    	return this.departmentLimit;
+    }
+    
     public String getDepth() {
     	return this.depth;
     }
