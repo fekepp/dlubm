@@ -91,17 +91,21 @@ class UniversityGenerator implements Runnable {
         if (index == 0) {
             _generateASection(univState, Ontology.CS_C_UNIV, univState.getUniversityIndex());
         }
-        _generateASection(univState, Ontology.CS_C_DEPT, index);
-        for (int i = Ontology.CS_C_DEPT + 1; i < Ontology.CLASS_NUM; i++) {
-            univState.getInstances()[i].count = 0;
-            for (int j = 0; j < univState.getInstances()[i].num; j++) {
-                _generateASection(univState, i, j);
-            }
+        if (!univState.getGlobalState().getDepth().equals("GLOBAL")){
+	        _generateASection(univState, Ontology.CS_C_DEPT, index);
+	        if (!univState.getGlobalState().getDepth().equals("UNIVERSITY")){
+		        for (int i = Ontology.CS_C_DEPT + 1; i < Ontology.CLASS_NUM; i++) {
+		            univState.getInstances()[i].count = 0;
+		            for (int j = 0; j < univState.getInstances()[i].num; j++) {
+		                _generateASection(univState, i, j);
+		            }
+		        }
+		
+		        _generatePublications(univState);
+		        _generateCourses(univState);
+		        _generateRaTa(univState);
+	        }
         }
-
-        _generatePublications(univState);
-        _generateCourses(univState);
-        _generateRaTa(univState);
 
         if (univState.getGlobalState().consolidationMode() != ConsolidationMode.None) {
             // Consolidating output so file is not yet complete

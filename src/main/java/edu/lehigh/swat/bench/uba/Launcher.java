@@ -81,6 +81,10 @@ public class Launcher {
     @NotBlank
     private String departmentTemplate = null;
 
+    @Option(name = {"--depth" }, arity = 1, title = "Depth", description = "Level of data to be generated.")
+    @AllowedRawValues(allowedValues = { "GLOBAL", "UNIVERSITY", "DEPARTMENT" })
+    private String depth = "DEPARTMENT";
+
     @Option(name = { "-o",
             "--output" }, title = "OutputDirectory", description = "Sets the output directory to which generated files are written (defaults to working directory)")
     @NotBlank
@@ -154,7 +158,7 @@ public class Launcher {
             Generator generator = new Generator();
             long start = System.currentTimeMillis();
             generator.start(launcher.univNum, launcher.startIndex, launcher.seed, launcher.format, launcher.ontology,
-            		launcher.universityTemplate, launcher.departmentTemplate,
+            		launcher.universityTemplate, launcher.departmentTemplate, launcher.depth,
                     launcher.workDir, launcher.consolidate, launcher.compress, launcher.threads, launcher.timeout,
                     TimeUnit.MINUTES, launcher.quiet);
             long elapsed = System.currentTimeMillis() - start;
