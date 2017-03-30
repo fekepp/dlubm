@@ -31,6 +31,7 @@ public class GlobalState {
     /** univ-bench ontology url */
     private final String ontology;
     
+    private final int numUniversitiesGlobal;
     private final String universityTemplate;
     private final int universityLimit;
     private final String departmentTemplate;
@@ -57,7 +58,7 @@ public class GlobalState {
     private Future<Long> consolidatorFuture;
 
     public GlobalState(int univNum, long baseSeed, int startIndex, String ontologyUrl,
-    		String universityTemplate, int universityLimit,
+    		int numUniversitiesGlobal, String universityTemplate, int universityLimit,
     		String departmentTemplate, int departmentLimit, String depth,
     		WriterType type, File outputDir,
             ConsolidationMode consolidate, boolean compress, int threads, long executionTimeout,
@@ -66,6 +67,7 @@ public class GlobalState {
         this.baseSeed = baseSeed;
         this.startIndex = startIndex;
         this.ontology = ontologyUrl;
+        this.numUniversitiesGlobal = numUniversitiesGlobal;
         this.universityTemplate = universityTemplate;
         this.universityLimit = universityLimit;
         this.departmentTemplate = departmentTemplate;
@@ -186,6 +188,10 @@ public class GlobalState {
 
     public String getOntologyUrl() {
         return this.ontology;
+    }
+    
+    public int getNumUniversitiesGlobal() {
+    	return this.numUniversitiesGlobal;
     }
     
     public String getUniversityTemplate() {

@@ -268,11 +268,11 @@ class UniversityGenerator implements Runnable {
         }
         // person properties
         univState.getWriter().addProperty(Ontology.CS_P_UNDERGRADFROM, Ontology.CS_C_UNIV,
-                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(GenerationParameters.UNIV_NUM)));
+                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(univState.getGlobalState().getNumUniversitiesGlobal() > 0 ? univState.getGlobalState().getNumUniversitiesGlobal() : GenerationParameters.UNIV_NUM)));
         univState.getWriter().addProperty(Ontology.CS_P_GRADFROM, Ontology.CS_C_UNIV,
-                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(GenerationParameters.UNIV_NUM)));
+                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(univState.getGlobalState().getNumUniversitiesGlobal() > 0 ? univState.getGlobalState().getNumUniversitiesGlobal() : GenerationParameters.UNIV_NUM)));
         univState.getWriter().addProperty(Ontology.CS_P_DOCFROM, Ontology.CS_C_UNIV,
-                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(GenerationParameters.UNIV_NUM)));
+                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(univState.getGlobalState().getNumUniversitiesGlobal() > 0 ? univState.getGlobalState().getNumUniversitiesGlobal() : GenerationParameters.UNIV_NUM)));
         univState.getWriter().addProperty(Ontology.CS_P_WORKSFOR,
                 univState.getId(Ontology.CS_C_DEPT, univState.getInstances()[Ontology.CS_C_DEPT].count - 1), true);
         univState.getWriter().addProperty(Ontology.CS_P_EMAIL, univState.getEmail(type, index), false);
@@ -561,7 +561,7 @@ class UniversityGenerator implements Runnable {
                     univState.getId(Ontology.CS_C_GRADCOURSE, info.globalIndex), true);
         }
         univState.getWriter().addProperty(Ontology.CS_P_UNDERGRADFROM, Ontology.CS_C_UNIV,
-                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(GenerationParameters.UNIV_NUM)));
+                univState.getId(Ontology.CS_C_UNIV, univState.getRandom(univState.getGlobalState().getNumUniversitiesGlobal() > 0 ? univState.getGlobalState().getNumUniversitiesGlobal() : GenerationParameters.UNIV_NUM)));
         if (0 == univState.getRandom(GenerationParameters.R_GRADSTUD_ADVISOR)) {
             univState.getWriter().addProperty(Ontology.CS_P_ADVISOR, _selectAdvisor(univState), true);
         }

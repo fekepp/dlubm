@@ -71,6 +71,9 @@ public class Launcher {
     @NotBlank
     private String ontology = DEFAULT_ONTOLOGY_URL;
 
+    @Option(name = { "--universitiesGlobal" }, title = "UniversitiesGlobal", description = "Global amount of universities")
+    private int universitiesGlobal = 0;
+
     @Option(name = { "--universityTemplate" }, title = "UniversityTemplate", description = "URI template for universities")
     private String universityTemplate = null;
 
@@ -160,7 +163,7 @@ public class Launcher {
             Generator generator = new Generator();
             long start = System.currentTimeMillis();
             generator.start(launcher.univNum, launcher.startIndex, launcher.seed, launcher.format, launcher.ontology,
-            		launcher.universityTemplate, launcher.universityLimit, launcher.departmentTemplate, launcher.departmentLimit, launcher.depth,
+            		launcher.universitiesGlobal, launcher.universityTemplate, launcher.universityLimit, launcher.departmentTemplate, launcher.departmentLimit, launcher.depth,
                     launcher.workDir, launcher.consolidate, launcher.compress, launcher.threads, launcher.timeout,
                     TimeUnit.MINUTES, launcher.quiet);
             long elapsed = System.currentTimeMillis() - start;
