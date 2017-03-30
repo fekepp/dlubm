@@ -30,6 +30,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -51,6 +52,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -70,6 +72,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -91,6 +94,7 @@ then
 		--threads ${DLUBM_THREADS} \
 		--seed ${DLUBM_SEED} \
 		--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+		--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 		--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 		--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 		--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -115,6 +119,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -138,6 +143,7 @@ then
 				--threads ${DLUBM_THREADS} \
 				--seed ${DLUBM_SEED} \
 				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -158,6 +164,7 @@ then
 				--threads ${DLUBM_THREADS} \
 				--seed ${DLUBM_SEED} \
 				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -179,6 +186,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -205,6 +213,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -226,6 +235,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -246,6 +256,7 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
