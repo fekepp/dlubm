@@ -1,0 +1,93 @@
+/*
+ * Plugins
+ */
+plugins {
+	id "application"
+}
+
+
+
+
+/*
+ * Configuration
+ */
+description = "DLUBM Generator"
+group = "edu.lehigh.swat.bench.uba"
+description = "Univ-Bench Artificial Data Generator (UBA) for the Lehigh University Benchmark (LUBM)"
+mainClassName = "edu.lehigh.swat.bench.uba.Launcher"
+
+jar {
+	manifest {
+		attributes	"Implementation-Title": description,
+				"Implementation-Version": version
+	}
+}
+
+
+
+
+/*
+ * Dependencies
+ */
+dependencies {
+	
+	
+	/*
+	 * Compile Dependencies
+	 */
+	
+	//
+	// Internal
+	//
+	
+	
+	//
+	// External
+	//
+	compile "com.github.rvesse:airline:2.0.0"
+	compile "joda-time:joda-time:2.8.2"
+	compile "log4j:log4j:1.2.17"
+	
+	
+	//
+	// Local
+	//
+	
+	
+	/*
+	 * Test Dependencies
+	 */
+	
+	//
+	// Internal
+	//
+	
+	
+	//
+	// External
+	//
+	
+	
+	//
+	// Local
+	//
+	
+	
+}
+
+
+
+
+/*
+ * Distributions
+ */
+
+
+
+
+/*
+ * Start Scripts
+ */
+
+
+

@@ -2,10 +2,164 @@
  * Plugins
  */
 plugins {
-	id "eclipse"
-	id "java"
-	id "application"
 	id "distribution"
+}
+
+
+
+
+/*
+ * Projects
+ */
+allprojects { 
+	
+	
+	
+	/*
+	 * Plugins
+	 */
+	apply plugin: "eclipse"
+	
+	
+	
+	
+	/*
+	 * Configurations
+	 */
+	
+	// Group and version
+	group = "net.fekepp.dlubm"
+	version = "1.9.0-pr.0"
+	
+	
+	
+	
+	/*
+	 * Tasks
+	 */
+	
+	// Recursive dependencies
+	task dependenciesRecursive(type: DependencyReportTask) {}
+	
+	
+	
+	
+}
+
+
+
+
+/*
+ * Subprojects
+ */
+subprojects {
+	
+	
+	
+	
+	/*
+	 * Plugins
+	 */
+	apply plugin: "java"
+	
+	
+	
+	
+	/*
+	 * Repositories
+	 */
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven {
+			url "https://jitpack.io"
+		}
+	}
+	
+	
+	
+	
+	/*
+	 * Dependencies
+	 */
+	dependencies {
+		
+		
+		
+		
+		/*
+		 * Compile Dependencies
+		 */
+		
+		
+		//
+		// Internal
+		//
+		
+		
+		//
+		// External
+		//
+		
+		// Logging
+		compile "org.slf4j:slf4j-api:1.7.+"
+		//compile "org.slf4j:log4j-over-slf4j:1.7.+"
+		compile "org.slf4j:jcl-over-slf4j:1.7.+"
+		compile "org.slf4j:jul-to-slf4j:1.7.+"
+		compile "ch.qos.logback:logback-classic:1.1.+"
+		
+		
+		//
+		// Local
+		//
+		
+		
+		
+		
+		/*
+		 * Test Dependencies
+		 */
+		
+		
+		//
+		// Internal
+		//
+		
+		
+		//
+		// External
+		//
+		
+		// Unit testing
+		testCompile "junit:junit:4.+"
+		
+		
+		//
+		// Local
+		//
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	/*
+	 * Configurations
+	 */
+	
+	// Eclipse
+	eclipse {
+		classpath {
+			downloadSources=true
+		}
+	}
+	
+	
+	
+	
 }
 
 
@@ -14,84 +168,7 @@ plugins {
 /*
  * Configurations
  */
-group = "edu.lehigh.swat.bench.uba"
-version = "1.9.0-pr.0"
-description = "Univ-Bench Artificial Data Generator (UBA) for the Lehigh University Benchmark (LUBM)"
-mainClassName = "edu.lehigh.swat.bench.uba.Launcher"
-
-jar {
-	manifest {
-		attributes	"Implementation-Title": description,
-				"Implementation-Version": version
-	}
-}
-
-
-
-
-/*
- * Repositories
- */
-repositories {
-	mavenLocal()
-	mavenCentral()
-	maven {
-		url "http://repo.maven.apache.org/maven2"
-	}
-	maven {
-		url "https://jitpack.io"
-	}
-}
-
-
-
-
-/*
- * Dependencies
- */
-dependencies {
-	
-	
-	
-	
-	/*
-	 * Compile Dependencies
-	 */
-	
-	
-	//
-	// Internal
-	//
-	
-	
-	//
-	// External
-	//
-	compile "com.github.rvesse:airline:2.0.0"
-	compile "joda-time:joda-time:2.8.2"
-	compile "org.slf4j:slf4j-api:1.7.12"
-	compile "org.slf4j:slf4j-log4j12:1.7.12"
-	compile "log4j:log4j:1.2.17"
-	
-	
-	
-	
-	/*
-	 * Test Dependencies
-	 */
-	
-	
-	//
-	// Internal
-	//
-	
-	
-	//
-	// External
-	//
-	
-	
-}
+description = "DLUBM"
 
 
 
@@ -99,3 +176,49 @@ dependencies {
 /*
  * Distributions
  */
+ distributions {
+	
+	main {
+		
+		contents {
+		
+			into("bin") {
+			
+				from { project(":dlubm-generator").startScripts.outputs.files }
+				fileMode = 0755
+			
+				//from { project(":dlubm-composer").startScripts.outputs.files }
+				//fileMode = 0755
+			
+				//from { project(":dlubm-deployer").startScripts.outputs.files }
+				//fileMode = 0755
+				
+			}
+			
+			into("lib") {
+
+				from project(":dlubm-generator").jar
+				from project(":dlubm-generator").configurations.runtime
+
+				//from project(":dlubm-composer").jar
+				//from project(":dlubm-composer").configurations.runtime
+
+				//from project(":dlubm-deployer").jar
+				//from project(":dlubm-deployer").configurations.runtime
+				
+			}
+			
+			//into("doc") {
+			//
+			//	from("doc")
+			//	
+			//}
+			
+		}
+		
+	}
+	
+}
+
+
+

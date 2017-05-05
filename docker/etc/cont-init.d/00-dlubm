@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv sh
 
-DLUBM_BINARY="/usr/share/dlubm/bin/dlubm"
+DLUBM_BINARY="/usr/share/dlubm/bin/dlubm-generator"
 DLUBM_OUTPUT_DIRECTORY="/var/www/"
 DLUBM_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/dlubm.log"
 DLUBM_GENERATOR_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/lubm.log"
