@@ -57,6 +57,7 @@ public class App {
 
 			Configuration configuration = new Configuration();
 
+			configuration.setProxyNetwork("traefik_proxy");
 			configuration.getImages().put(Level.ONTOLOGY, "fekepp/dlubm:1.9.0-pr");
 			configuration.getImages().put(Level.GLOBAL, "fekepp/dlubm:1.9.0-pr");
 			configuration.getImages().put(Level.UNIVERSITY, "fekepp/dlubm:1.9.0-pr");

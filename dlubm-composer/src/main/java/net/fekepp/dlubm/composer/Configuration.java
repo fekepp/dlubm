@@ -7,6 +7,8 @@ public class Configuration {
 
 	// Deployment
 
+	private String proxyNetwork;
+
 	private Map<Level, String> images = new HashMap<Level, String>();
 
 	private String domain;
@@ -36,6 +38,7 @@ public class Configuration {
 	private String departmentTemplate;
 
 	public Configuration() {
+		proxyNetwork = "traefik_proxy";
 		images.put(Level.ONTOLOGY, "fekepp/dlubm:latest");
 		images.put(Level.GLOBAL, "fekepp/dlubm:latest");
 		images.put(Level.UNIVERSITY, "fekepp/dlubm:latest");
@@ -52,6 +55,14 @@ public class Configuration {
 		departmentLimit = 0;
 		universityTemplate = null;
 		departmentTemplate = null;
+	}
+
+	public String getProxyNetwork() {
+		return proxyNetwork;
+	}
+
+	public void setProxyNetwork(String proxyNetwork) {
+		this.proxyNetwork = proxyNetwork;
 	}
 
 	public Map<Level, String> getImages() {

@@ -49,7 +49,7 @@ public class Composer {
 		}
 
 		External networkProxyExternal = new External();
-		networkProxyExternal.setName("traefik_proxy");
+		networkProxyExternal.setName(configuration.getProxyNetwork());
 
 		Network networkProxy = new Network();
 		networkProxy.setExternal(networkProxyExternal);
@@ -232,6 +232,7 @@ public class Composer {
 	private Map<String, Service> generateService(Level hostDepth, int hostUniversityAmount, int hostUniversityOffset,
 			int hostDepartmentAmount, int hostDepartmentOffset) {
 
+		String proxyNetwork = configuration.getProxyNetwork();
 		Map<Level, String> images = configuration.getImages();
 		String hostname = configuration.getDomain();
 		boolean withDetailedSubdomain = configuration.isWithDetailedSubdomain();
@@ -429,7 +430,7 @@ public class Composer {
 		service.setNetworks(serviceNetworks);
 
 		// Labels
-		String[] labels = new String[] { "traefik.docker.network=traefik_proxy", "traefik.port=80",
+		String[] labels = new String[] { "traefik.docker.network=" + proxyNetwork, "traefik.port=80",
 				"traefik.frontend.rule=Host:" + host
 						+ (hostDepth.equals(Level.GLOBAL) && withGlobalDomain ? "," + hostname : "") };
 		service.setLabels(labels);
