@@ -1,0 +1,91 @@
+/*
+ * Plugins
+ */
+plugins {
+	id "application"
+}
+
+
+
+
+/*
+ * Configuration
+ */
+description = "DLUBM Composer"
+mainClassName = "net.fekepp.dlubm.composer.App"
+
+jar {
+	manifest {
+		attributes	"Implementation-Title": description,
+				"Implementation-Version": version
+	}
+}
+
+
+
+
+/*
+ * Dependencies
+ */
+dependencies {
+	
+	
+	/*
+	 * Compile Dependencies
+	 */
+	
+	//
+	// Internal
+	//
+	
+	
+	//
+	// External
+	//
+	//compile "commons-io:commons-io:2.5"
+	compile "commons-cli:commons-cli:1.4"
+	compile "org.yaml:snakeyaml:1.18"
+	
+	
+	//
+	// Local
+	//
+	
+	
+	/*
+	 * Test Dependencies
+	 */
+	
+	//
+	// Internal
+	//
+	
+	
+	//
+	// External
+	//
+	
+	
+	//
+	// Local
+	//
+	
+	
+}
+
+
+
+
+/*
+ * Distributions
+ */
+
+
+
+
+/*
+ * Start Scripts
+ */
+
+
+

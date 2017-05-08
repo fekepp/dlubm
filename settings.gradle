@@ -1,4 +1,4 @@
 rootProject.name = "dlubm"
 include 'dlubm-generator'
-//include 'dlubm-composer'
+include 'dlubm-composer'
 //include 'dlubm-deployer'

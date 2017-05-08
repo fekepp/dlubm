@@ -187,8 +187,8 @@ description = "DLUBM"
 				from { project(":dlubm-generator").startScripts.outputs.files }
 				fileMode = 0755
 			
-				//from { project(":dlubm-composer").startScripts.outputs.files }
-				//fileMode = 0755
+				from { project(":dlubm-composer").startScripts.outputs.files }
+				fileMode = 0755
 			
 				//from { project(":dlubm-deployer").startScripts.outputs.files }
 				//fileMode = 0755
@@ -200,8 +200,8 @@ description = "DLUBM"
 				from project(":dlubm-generator").jar
 				from project(":dlubm-generator").configurations.runtime
 
-				//from project(":dlubm-composer").jar
-				//from project(":dlubm-composer").configurations.runtime
+				from project(":dlubm-composer").jar
+				from project(":dlubm-composer").configurations.runtime
 
 				//from project(":dlubm-deployer").jar
 				//from project(":dlubm-deployer").configurations.runtime
