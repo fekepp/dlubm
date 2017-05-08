@@ -320,7 +320,7 @@ public class Composer {
 				}
 			} else if (universityLimit == 1) {
 				if (universityTemplate == null) {
-					universityTemplate = "http://u{UNIVERSITY_INDEX}." + domain + "/#";
+					universityTemplate = "http://u{UNIVERSITY_INDEX}." + domain + "/u#";
 				}
 				if (departmentTemplate == null) {
 					departmentTemplate = "http://u{UNIVERSITY_INDEX}." + domain + "/d{DEPARTMENT_INDEX}#";
@@ -356,10 +356,10 @@ public class Composer {
 					// TODO Add templates aligned with DLUBM docker image
 				} else if (departmentLimit == 1) {
 					if (universityTemplate == null) {
-						universityTemplate = "http://u{UNIVERSITY_INDEX}." + domain + "/#";
+						universityTemplate = "http://u{UNIVERSITY_INDEX}." + domain + "/u#";
 					}
 					if (departmentTemplate == null) {
-						departmentTemplate = "http://d{DEPARTMENT_INDEX}.u{UNIVERSITY_INDEX}." + domain + "/#";
+						departmentTemplate = "http://d{DEPARTMENT_INDEX}.u{UNIVERSITY_INDEX}." + domain + "/d#";
 					}
 				} else if (departmentLimit > 1) {
 					// TODO Add templates aligned with DLUBM docker image
