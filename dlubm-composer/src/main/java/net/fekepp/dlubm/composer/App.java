@@ -59,9 +59,9 @@ public class App {
 
 			configuration.getImages().put(Level.ONTOLOGY, "fekepp/dlubm:1.9.0-pr");
 			configuration.getImages().put(Level.GLOBAL, "fekepp/dlubm:1.9.0-pr");
+			configuration.getImages().put(Level.UNIVERSITY, "fekepp/dlubm:1.9.0-pr");
 			// configuration.getImages().put(Level.UNIVERSITY,
-			// "fekepp/dlubm:1.9.0-pr");
-			configuration.getImages().put(Level.UNIVERSITY, "fekepp/scal:lastest");
+			// "fekepp/dlubm-scal:latest");
 			configuration.getImages().put(Level.DEPARTMENT, "fekepp/dlubm:1.9.0-pr");
 			configuration.setDomain("dlubm.ddns.me");
 			configuration.setWithDetailedSubdomain(false);
