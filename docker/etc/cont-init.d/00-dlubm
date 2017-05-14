@@ -7,6 +7,9 @@ DLUBM_GENERATOR_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/lubm.log"
 DLUBM_THREADS=1
 DLUBM_FORMAT="TURTLE"
 
+# Currently deactivated and thus leads to non-resolvable links but closer to original data
+#			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+
 
 
 
@@ -30,7 +33,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -52,7 +54,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -72,7 +73,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -94,7 +94,6 @@ then
 		--threads ${DLUBM_THREADS} \
 		--seed ${DLUBM_SEED} \
 		--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-		--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 		--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 		--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 		--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -119,7 +118,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -143,7 +141,6 @@ then
 				--threads ${DLUBM_THREADS} \
 				--seed ${DLUBM_SEED} \
 				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -164,7 +161,6 @@ then
 				--threads ${DLUBM_THREADS} \
 				--seed ${DLUBM_SEED} \
 				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -186,7 +182,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -213,7 +208,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -235,7 +229,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
@@ -256,7 +249,6 @@ then
 			--threads ${DLUBM_THREADS} \
 			--seed ${DLUBM_SEED} \
 			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
-			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
 			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
 			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
 			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
