@@ -38,7 +38,7 @@ public class Configuration {
 	private String departmentTemplate;
 
 	public Configuration() {
-		proxyNetwork = "traefik_proxy";
+		proxyNetwork = "reverse_proxy";
 		images.put(Level.ONTOLOGY, "fekepp/dlubm:latest");
 		images.put(Level.GLOBAL, "fekepp/dlubm:latest");
 		images.put(Level.UNIVERSITY, "fekepp/dlubm:latest");
