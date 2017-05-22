@@ -79,7 +79,7 @@ public class Composer {
 
 	public void compose() {
 
-		logger.info("Starting the creation of a composition");
+		logger.debug("Start composition creation");
 
 		Composition compose = new Composition();
 
@@ -177,20 +177,20 @@ public class Composer {
 		int universityLimit = configuration.getUniversityLimit();
 		int departmentLimit = configuration.getDepartmentLimit();
 
-		logger.info("g={} | s={} | ua={} | uo={} | ul={} | dl={}", granularityAcronym, seed, universityAmount,
+		logger.debug("g={} | s={} | ua={} | uo={} | ul={} | dl={}", granularityAcronym, seed, universityAmount,
 				universityOffset, universityLimit, departmentLimit);
 
 		int hostCounter = 0;
 
 		// Generate ontology service
 		hostCounter++;
-		logger.info("O | hc={}", hostCounter);
+		logger.debug("O | hc={}", hostCounter);
 		Map<String, Service> ontologyService = generateService(Level.ONTOLOGY, 0, 0, 0, 0);
 		services.putAll(ontologyService);
 
 		// Generate global service
 		hostCounter++;
-		logger.info("G | hc={} | uha={}", hostCounter, universityAmount);
+		logger.debug("G | hc={} | uha={}", hostCounter, universityAmount);
 		Map<String, Service> globalService = generateService(Level.GLOBAL, universityAmount, universityOffset, 0, 0);
 		services.putAll(globalService);
 
@@ -220,7 +220,7 @@ public class Composer {
 
 				hostCounter++;
 
-				logger.info("U | hc={} | uha={} | uhi={} | huo={} | hua={}", hostCounter, universityHostAmount,
+				logger.debug("U | hc={} | uha={} | uhi={} | huo={} | hua={}", hostCounter, universityHostAmount,
 						universityHostIndex, hostUniversityOffset, hostUniversityAmount);
 
 				Map<String, Service> universityService = generateService(Level.UNIVERSITY, hostUniversityAmount,
@@ -253,7 +253,7 @@ public class Composer {
 
 						hostCounter++;
 
-						logger.info("D | hc={} | uha={} | uhi={} | huo={} | hua={} | hdo={} | hda={}", hostCounter,
+						logger.debug("D | hc={} | uha={} | uhi={} | huo={} | hua={} | hdo={} | hda={}", hostCounter,
 								universityHostAmount, universityHostIndex, hostUniversityOffset, hostUniversityAmount,
 								hostDepartmentOffset, hostDepartmentAmount);
 
