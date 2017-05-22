@@ -61,6 +61,9 @@ public class App {
 	public static final Option OPTION_DEPARTMENT_TEMPLATE = Option.builder("dt").longOpt("department-template")
 			.desc("URI template for departments").hasArg().type(String.class).required(false).build();
 
+	public static final Option OPTION_ONTOLOGY = Option.builder("o").longOpt("ontology").desc("URI for the ontology")
+			.hasArg().type(String.class).required(false).build();
+
 	public static final Options getOptions() {
 		Options options = new Options();
 		options.addOption(OPTION_IMAGE_ONTOLOGY);
@@ -79,6 +82,7 @@ public class App {
 		options.addOption(OPTION_DEPARTMENT_LIMIT);
 		options.addOption(OPTION_UNIVERSITY_TEMPLATE);
 		options.addOption(OPTION_DEPARTMENT_TEMPLATE);
+		options.addOption(OPTION_ONTOLOGY);
 		return options;
 	}
 
@@ -279,6 +283,17 @@ public class App {
 			if (value != null) {
 				if (value instanceof String && ((String) value).length() > 0) {
 					configuration.setDepartmentTemplate((String) value);
+				} else {
+					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
+							+ "\": " + value);
+				}
+			}
+
+			option = OPTION_ONTOLOGY;
+			value = commandLine.getParsedOptionValue(option.getOpt());
+			if (value != null) {
+				if (value instanceof String && ((String) value).length() > 0) {
+					configuration.setOntology((String) value);
 				} else {
 					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
 							+ "\": " + value);
