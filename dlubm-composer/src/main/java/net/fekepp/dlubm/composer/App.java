@@ -234,7 +234,7 @@ public class App {
 			value = commandLine.getParsedOptionValue(option.getOpt());
 			if (value != null) {
 				if (value instanceof Long && (Long) value > 0 && (Long) value <= 65535) {
-					configuration.setUniversityOffset(((Long) value).intValue());
+					configuration.setUniversityAmount(((Long) value).intValue());
 				} else {
 					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
 							+ "\": " + value);
@@ -245,7 +245,7 @@ public class App {
 			value = commandLine.getParsedOptionValue(option.getOpt());
 			if (value != null) {
 				if (value instanceof Long && (Long) value > 0 && (Long) value <= 65535) {
-					configuration.setUniversityOffset(((Long) value).intValue());
+					configuration.setUniversityLimit(((Long) value).intValue());
 				} else {
 					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
 							+ "\": " + value);
@@ -256,7 +256,7 @@ public class App {
 			value = commandLine.getParsedOptionValue(option.getOpt());
 			if (value != null) {
 				if (value instanceof Long && (Long) value > 0 && (Long) value <= 65535) {
-					configuration.setUniversityOffset(((Long) value).intValue());
+					configuration.setDepartmentLimit(((Long) value).intValue());
 				} else {
 					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
 							+ "\": " + value);
