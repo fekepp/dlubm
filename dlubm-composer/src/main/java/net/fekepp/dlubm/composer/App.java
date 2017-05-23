@@ -32,10 +32,10 @@ public class App {
 			.hasArg().type(String.class).required().build();
 
 	public static final Option OPTION_DOMAIN_GLOBAL = Option.builder("dg").longOpt("domain-global")
-			.desc("Enable global domain").hasArg().type(Boolean.class).required(false).build();
+			.desc("Enable global domain").type(Boolean.class).required(false).build();
 
 	public static final Option OPTION_DOMAIN_DETAILED = Option.builder("dd").longOpt("domain-detailed")
-			.desc("Enable detailed subdomains").hasArg().type(Boolean.class).required(false).build();
+			.desc("Enable detailed subdomains").type(Boolean.class).required(false).build();
 
 	public static final Option OPTION_GRANULARITY = Option.builder("g").longOpt("granularity")
 			.desc("Granularity:\nGLOBAL, UNIVERSITY, DEPARTMENT").hasArg().type(String.class).required(false).build();
@@ -179,26 +179,38 @@ public class App {
 				}
 			}
 
+			// option = OPTION_DOMAIN_GLOBAL;
+			// value = commandLine.getParsedOptionValue(option.getOpt());
+			// if (value != null) {
+			// if (value instanceof Boolean) {
+			// configuration.setWithGlobalDomain((Boolean) value);
+			// } else {
+			// throw new ParseException("Bad input for option \"-" +
+			// option.getOpt() + ", --" + option.getLongOpt()
+			// + "\": " + value);
+			// }
+			// }
+
 			option = OPTION_DOMAIN_GLOBAL;
-			value = commandLine.getParsedOptionValue(option.getOpt());
-			if (value != null) {
-				if (value instanceof Boolean) {
-					configuration.setWithGlobalDomain((Boolean) value);
-				} else {
-					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
-							+ "\": " + value);
-				}
+			if (commandLine.hasOption(option.getOpt())) {
+				configuration.setWithGlobalDomain(true);
 			}
 
+			// option = OPTION_DOMAIN_DETAILED;
+			// value = commandLine.getParsedOptionValue(option.getOpt());
+			// if (value != null) {
+			// if (value instanceof Boolean) {
+			// configuration.setWithDetailedSubdomain((Boolean) value);
+			// } else {
+			// throw new ParseException("Bad input for option \"-" +
+			// option.getOpt() + ", --" + option.getLongOpt()
+			// + "\": " + value);
+			// }
+			// }
+
 			option = OPTION_DOMAIN_DETAILED;
-			value = commandLine.getParsedOptionValue(option.getOpt());
-			if (value != null) {
-				if (value instanceof Boolean) {
-					configuration.setWithDetailedSubdomain((Boolean) value);
-				} else {
-					throw new ParseException("Bad input for option \"-" + option.getOpt() + ", --" + option.getLongOpt()
-							+ "\": " + value);
-				}
+			if (commandLine.hasOption(option.getOpt())) {
+				configuration.setWithDetailedSubdomain(true);
 			}
 
 			option = OPTION_GRANULARITY;
